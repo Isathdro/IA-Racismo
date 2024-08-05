@@ -1,0 +1,48 @@
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+
+const perguntas = [
+    {
+        enunciado: "Como podemos enfrentar o racismo na sociedade?",
+        alternativas: [
+            "Denuncie para as autoridades.",
+            "Denuncie o caso: se você se sentir seguro e confortável, denuncie a discriminação racial às autoridades competentes, como a polícia ou órgãos de defesa dos direitos humanos. Isso ajudará a garantir que a conduta discriminatória seja registrada e investigada.."
+        ]
+    },
+    {
+        enunciado: "Como você pode ajudar a combater a disseminação de fake news, especialmente as que perpetuam o racismo?",
+        alternativas: [
+            "Verificando a veracidade das informações antes de compartilhar qualquer conteúdo, especialmente sobre temas sensíveis como racismo.",
+            ""Educando amigos e familiares sobre os perigos das fake news e incentivando-os a não compartilhar conteúdos falsos que perpetuam o racismo.
+        ]
+    },
+    {
+        enunciado: "Retrucar na mesmo , pode ser uma boa opção?",
+        alternativas: [
+            "Preserve evidẽncias.",
+            "Preserve evidências: se possível, colete e preserve as provas relacionadas à discriminação racial que você tenha sofrido. Isso pode incluir mensagens, fotos, vídeos ou qualquer outra forma de evidência que possa ajudar a comprovar o ocorrido.."
+        ]
+    }
+];
+
+let atual = 0;
+let perguntaAtual;
+
+function mostraPergunta(){
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
+    mostraAlternativas();
+}
+
+function mostraAlternativas(){
+    for (const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativa = document.createElement("button");
+        botaoAlternativa.textContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlternativa);
+    }
+}
+
+mostraPergunta();
